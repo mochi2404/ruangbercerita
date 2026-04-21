@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Cerita</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="blob blob-one"></div>
+      <div class="blob blob-two"></div>
+
+      <nav class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark">💬</span>
+          <h1 class="brand-title">Ruang Cerita</h1>
+        </a>
+        <div class="nav-actions">
+          <a class="nav-pill" href="/">
+            <i data-lucide="message-circle" style="width:16px;height:16px;"></i>
+            Chat
+          </a>
+        </div>
+      </nav>
+
+      <main class="page">
+        <section id="user-home" class="user-home">
+          <div class="hero">
+            <div class="hero-icon">💬</div>
+            <h2>Ruang Cerita</h2>
+            <p>Chat anonim dengan admin yang ramah dan mendengarkan</p>
+            <div class="chips">
+              <span class="chip chip-green">Anonim</span>
+              <span class="chip chip-orange">Privat</span>
+              <span class="chip chip-green">Aman</span>
+            </div>
+          </div>
+
+          <button id="start-chat" class="start-button" type="button">
+            <i data-lucide="plus" style="width:20px;height:20px;"></i>
+            Mulai Bercerita
+          </button>
+
+          <h3 class="section-title">Chat Sebelumnya</h3>
+          <div id="user-chat-list" class="chat-list"></div>
+          <div id="user-no-chats" class="empty-note">Belum ada chat. Yuk mulai percakapan!</div>
+        </section>
+
+        <section id="user-chat" class="chat-page hidden">
+          <div class="chat-header">
+            <div class="chat-title-line">
+              <a class="ios-back-button" href="/" aria-label="Kembali ke daftar chat">
+                <i data-lucide="chevron-left" style="width:22px;height:22px;"></i>
+                <span>Back</span>
+              </a>
+              <div>
+                <h3>Chat dengan Admin</h3>
+                <p>Percakapan Anonim</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="user-messages" class="messages"></div>
+
+          <form id="user-form" class="chat-composer">
+            <div class="composer-row">
+              <textarea id="user-input" rows="2" placeholder="Tulis pesan..."></textarea>
+              <button class="send-button" type="submit" aria-label="Kirim">
+                <i data-lucide="send" style="width:18px;height:18px;"></i>
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="/assets/app.js"></script>
+    <script>
+      if (new URLSearchParams(window.location.search).has("chat")) {
+        document.getElementById("user-home").classList.add("hidden");
+        document.getElementById("user-chat").classList.remove("hidden");
+      }
+      window.RuangCerita.initUser();
+    </script>
+  </body>
+</html>

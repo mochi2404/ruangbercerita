@@ -1,0 +1,16 @@
+{
+  "name": "ruang-cerita",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "check": "node --check assets/app.js && node --check api/chats.js && node --check api/messages.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
